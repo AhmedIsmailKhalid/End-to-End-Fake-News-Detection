@@ -1,5 +1,6 @@
 pandas
 uvicorn
+fastapi
 joblib==1.3.2
 schedule==1.2.2
 newspaper3k==0.2.8

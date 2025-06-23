@@ -10,7 +10,7 @@ license: mit
 ---
 # 📰 Fake News Detector
 
-A full-stack AI-powered fake news detection system built using Python, FastAPI, Streamlit, and traditional ML. This project demonstrates end-to-end skills in AI, machine learning, MLOps, and cloud deployment. It includes real-time inference, automatic retraining based on new data, drift detection, live monitoring, and user interactivity—all hosted for free on Render.com.
+A full-stack AI-powered fake news detection system built using Python, FastAPI, Streamlit, and traditional ML. This project demonstrates end-to-end skills in AI, machine learning, MLOps, and cloud deployment. It includes real-time inference, automatic retraining based on new data, drift detection, live monitoring, and user interactivity—all hosted for free on HuggingFace Spaces.
 
 🔗 Live App: https://huggingface.co/spaces/Ahmedik95316/Fake-News-Detection-MLOs-Web-App
 

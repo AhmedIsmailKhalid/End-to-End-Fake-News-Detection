@@ -106,32 +106,46 @@ Every hour (or every minute in test mode), the system:
 
 ---
 
-## 🌐 Hosted Live on HuggingFace Spaces and Render.com
+🌐 Live Deployment: Hugging Face Spaces (Primary) & Render.com (Backup)
+This project is fully deployed and accessible via:
 
-This project is fully deployed and live on HuggingFace Spaces and Render.com as backup
+🚀 Primary Deployment – Hugging Face Spaces
+Streamlit UI + FastAPI Backend in a Single Docker Container
+🔗 Launch App
 
-* The **FastAPI backend** is hosted as a web service
-* The **Streamlit UI** interacts with the backend and provides the full user experience
+Hosted on Hugging Face Spaces using a Docker container that replicates the full environment.
 
-Simply visit the live Streamlit app and start using it. 
-https://huggingface.co/spaces/Ahmedik95316/Fake-News-Detection-MLOs-Web-App
+Both the Streamlit frontend and FastAPI backend run inside the same container.
 
+Uses Python 3.11.6, matching the local development environment for faster and consistent builds.
 
-**Note** : This app is hosted on render.com using free tier, and as such tends to go offline. If it doesn't work you may need to also visit the link for the FastAPI endpoint just to wake it up
-* Streamlit Endpoint : https://end-to-end-fake-news-detection-streamlit.onrender.com
-* FastAPI Endpoint : https://end-to-end-fake-news-detection-web-app.onrender.com
+The API_URL in streamlit_app.py is set to http://localhost:8000/predict to support intra-container communication.
 
-This setup is managed by the `render.yaml` file, which defines:
+🔄 Backup Deployment – Render.com
+Separate Web Services for FastAPI and Streamlit
 
-* Backend build + launch (FastAPI)
-* Frontend build + launch (Streamlit)
-* Python environment and port configurations
+Free-tier deployment on Render.com used as a fallback in case the Hugging Face container is unavailable.
 
-***Note 2*** : This repository is being used to create the web services for both **Streamlit** and **FastAPI** on **Render.com**. The HuggingFace Spaces has it's own Docker repository hosted and only has few key differences :
-* In the `streamlit_app.py`, the `API_URL = "http://127.0.0.1:8000/predict"` is changed to `API_URL = "http://localhost:8000/predict"`. This is because the Docker containerizes both **Streamlit** and **FastAPI** whereas Render.com has separate web services for both
-* HuggingFace spaces Docker repository uses `python 3.11.6` while Render.com uses `python 3.10.13`. This difference is primarily just to speed up the building and deployment process on Render.com
-* The Docker container matches my local environment exactly, which is another reason it uses `python 3.11.6` and therefore for each library/package the `requirements.txt` has specific version mentioned for HuggingFace spaces Docker repository whereas some libraries/packages in the `requirements.txt` file of this repository are included without specific version, e.g. `fastapi` and `fastapi==0.105.0`. This was because the container was tested locally first before creating the HuggingFace spaces Docker repository.
-* While this repository doesn't need or uses the `DockerFile`, it is still included for reference
+May take a few seconds to spin up if inactive.
+
+🌐 Render Links:
+Streamlit UI: https://end-to-end-fake-news-detection-streamlit.onrender.com
+FastAPI Backend: https://end-to-end-fake-news-detection-web-app.onrender.com
+
+**Note**: If the Streamlit UI doesn’t load, you may need to first visit the FastAPI link above to "wake up" the backend.
+
+⚙️ Infrastructure Details
+Render.com (render.yaml):
+Defines separate services for backend (FastAPI) and frontend (Streamlit).
+
+Uses Python 3.10.13 for compatibility and faster deployment on Render.
+
+Hugging Face Spaces (Dockerfile):
+Uses Python 3.11.6, aligned with the local environment.
+
+All dependencies are pinned to exact versions in requirements.txt for reproducibility.
+
+Containerized setup enables seamless integration between backend and frontend.
 ---
 
 ## 🎯 Skills Demonstrated

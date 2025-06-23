@@ -26,4 +26,6 @@ EXPOSE 7860
 
 # Run both FastAPI and Streamlit using a wrapper script
 # CMD ["python", "app.py"]
-CMD ["streamlit", "run", "app/streamlit_app.py", "--server.port=7860", "--server.address=0.0.0.0"]
+# CMD ["streamlit", "run", "app/streamlit_app.py", "--server.port=7860", "--server.address=0.0.0.0"]
+CMD ["bash", "-c", "python scheduler/schedule_tasks.py & python monitor/monitor_drift.py & streamlit run app/streamlit_app.py"]
+

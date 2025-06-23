@@ -15,7 +15,7 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 # ---- Constants ----
 # API_URL = "http://127.0.0.1:8000/predict"
-API_URL = "http://localhost:8000/predict""
+API_URL = "http://localhost:8000/predict"
 CUSTOM_DATA_PATH = Path(__file__).parent.parent / "data" / "custom_upload.csv"
 METADATA_PATH = Path(__file__).parent.parent / "model" / "metadata.json"
 ACTIVITY_LOG_PATH = Path(__file__).parent.parent / "logs" / "activity_log.json"

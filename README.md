@@ -2,6 +2,8 @@
 
 A full-stack AI-powered fake news detection system built using Python, FastAPI, Streamlit, and traditional ML. This project demonstrates end-to-end skills in AI, machine learning, MLOps, and cloud deployment. It includes real-time inference, automatic retraining based on new data, drift detection, live monitoring, and user interactivity—all hosted for free on Render.com.
 
+🔗 Live App: https://end-to-end-fake-news-detection-streamlit.onrender.com
+
 ---
 
 ## 🚀 Overview: What This Project Demonstrates
@@ -111,9 +113,11 @@ This project is fully deployed and live on Render.com.
 * The **FastAPI backend** is hosted as a web service
 * The **Streamlit UI** interacts with the backend and provides the full user experience
 
-You do **not** need to clone, install, or run anything manually.
-Simply visit the live Streamlit app and start using it.
+Simply visit the live Streamlit app and start using it. 
+https://end-to-end-fake-news-detection-streamlit.onrender.com
 
+** Note ** : This app is hosted on render.com using free tier, and as such tends to go offline. If it doesn't work you may need to also visit the link for the FastAPI endpoint just to wake it up :
+FastAPI Endpoint : https://end-to-end-fake-news-detection-web-app.onrender.com
 This setup is managed by the `render.yaml` file, which defines:
 
 * Backend build + launch (FastAPI)

@@ -2,7 +2,7 @@
 
 A full-stack AI-powered fake news detection system built using Python, FastAPI, Streamlit, and traditional ML. This project demonstrates end-to-end skills in AI, machine learning, MLOps, and cloud deployment. It includes real-time inference, automatic retraining based on new data, drift detection, live monitoring, and user interactivity—all hosted for free on Render.com.
 
-🔗 Live App: https://end-to-end-fake-news-detection-streamlit.onrender.com
+🔗 Live App: https://huggingface.co/spaces/Ahmedik95316/Fake-News-Detection-MLOs-Web-App
 
 ---
 
@@ -106,24 +106,32 @@ Every hour (or every minute in test mode), the system:
 
 ---
 
-## 🌐 Hosted Live on Render.com
+## 🌐 Hosted Live on HuggingFace Spaces and Render.com
 
-This project is fully deployed and live on Render.com.
+This project is fully deployed and live on HuggingFace Spaces and Render.com as backup
 
 * The **FastAPI backend** is hosted as a web service
 * The **Streamlit UI** interacts with the backend and provides the full user experience
 
 Simply visit the live Streamlit app and start using it. 
-https://end-to-end-fake-news-detection-streamlit.onrender.com
+https://huggingface.co/spaces/Ahmedik95316/Fake-News-Detection-MLOs-Web-App
 
-** Note ** : This app is hosted on render.com using free tier, and as such tends to go offline. If it doesn't work you may need to also visit the link for the FastAPI endpoint just to wake it up :
-FastAPI Endpoint : https://end-to-end-fake-news-detection-web-app.onrender.com
+
+**Note** : This app is hosted on render.com using free tier, and as such tends to go offline. If it doesn't work you may need to also visit the link for the FastAPI endpoint just to wake it up
+* Streamlit Endpoint : https://end-to-end-fake-news-detection-streamlit.onrender.com
+* FastAPI Endpoint : https://end-to-end-fake-news-detection-web-app.onrender.com
+
 This setup is managed by the `render.yaml` file, which defines:
 
 * Backend build + launch (FastAPI)
 * Frontend build + launch (Streamlit)
 * Python environment and port configurations
 
+***Note 2*** : This repository is being used to create the web services for both **Streamlit** and **FastAPI** on **Render.com**. The HuggingFace Spaces has it's own Docker repository hosted and only has few key differences :
+* In the `streamlit_app.py`, the `API_URL = "http://127.0.0.1:8000/predict"` is changed to `API_URL = "http://localhost:8000/predict"`. This is because the Docker containerizes both **Streamlit** and **FastAPI** whereas Render.com has separate web services for both
+* HuggingFace spaces Docker repository uses `python 3.11.6` while Render.com uses `python 3.10.13`. This difference is primarily just to speed up the building and deployment process on Render.com
+* The Docker container matches my local environment exactly, which is another reason it uses `python 3.11.6` and therefore for each library/package the `requirements.txt` has specific version mentioned for HuggingFace spaces Docker repository whereas some libraries/packages in the `requirements.txt` file of this repository are included without specific version, e.g. `fastapi` and `fastapi==0.105.0`. This was because the container was tested locally first before creating the HuggingFace spaces Docker repository.
+* While this repository doesn't need or uses the `DockerFile`, it is still included for reference
 ---
 
 ## 🎯 Skills Demonstrated

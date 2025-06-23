@@ -25,4 +25,5 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 EXPOSE 7860
 
 # Run both FastAPI and Streamlit using a wrapper script
-CMD ["python", "app.py"]
+# CMD ["python", "app.py"]
+CMD ["streamlit", "run", "app/streamlit_app.py", "--server.port=7860", "--server.address=0.0.0.0"]

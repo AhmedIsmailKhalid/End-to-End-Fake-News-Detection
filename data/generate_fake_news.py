@@ -41,7 +41,7 @@ def generate_one():
         action=random.choice(ACTIONS)
     )
 
-def generate_fake_news(n=20):
+def generate_fake_articles(n=20):
     rows = []
     for _ in range(n):
         text = generate_one()

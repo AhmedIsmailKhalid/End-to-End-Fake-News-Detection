@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install -y \
 
 # Set working directory
 WORKDIR /app
+ENV PYTHONPATH="/app"
+
 
 # Copy project files
 COPY . /app

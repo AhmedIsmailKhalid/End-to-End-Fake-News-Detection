@@ -25,8 +25,8 @@ def log_event(event: str):
 
 def run_scraper_and_generator():
     print("⏳ Running scraping and generation tasks...")
-    scrape_real_articles()
-    generate_fake_articles()
+    scrape_articles()
+    generate_fake_news()
     log_event("New data scraped and uploaded, triggering retraining now")
 
     print("🔁 Retraining pipeline started...")

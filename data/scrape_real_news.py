@@ -16,7 +16,7 @@ NEWS_SITES = [
 
 MAX_ARTICLES = 15
 
-def scrape_articles():
+def scrape_real_articles():
     all_articles = []
     total_scraped = 0
 

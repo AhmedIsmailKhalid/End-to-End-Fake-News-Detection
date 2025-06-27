@@ -1,10 +1,10 @@
 import schedule
 import time
 from pathlib import Path
-from data.scrape_real_news import scrape_real_articles
-from data.generate_fake_news import generate_fake_articles
+from data.scrape_real_news import scrape_articles
+from data.generate_fake_news import generate_fake_news
 from monitor.monitor_drift import monitor_drift
-from train.retrain_if_needed import retrain_if_needed
+from model.retrain import train_model
 import json
 from datetime import datetime
 

@@ -5,7 +5,8 @@ import datetime
 
 # Output path
 BASE_DIR = Path(__file__).resolve().parent
-OUTPUT_PATH = BASE_DIR / "scraped_real.csv"
+# OUTPUT_PATH = BASE_DIR / "scraped_real.csv"
+OUTPUT_PATH = Path("/tmp/scraped_real.csv")
 
 # News sources
 NEWS_SITES = [

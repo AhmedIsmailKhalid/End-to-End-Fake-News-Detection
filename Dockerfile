@@ -20,14 +20,19 @@ ENV PYTHONPATH="/app"
 # Copy project files
 COPY . /app
 
+# Make the startup script executable
+RUN chmod +x /app/start.sh
+
 # Install Python dependencies
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Expose Streamlit port
-EXPOSE 7860
+# # Expose Streamlit port
+# EXPOSE 7860
 
-# Run both FastAPI and Streamlit using a wrapper script
-# CMD ["python", "app.py"]
-# CMD ["streamlit", "run", "app/streamlit_app.py", "--server.port=7860", "--server.address=0.0.0.0"]
-CMD ["bash", "-c", "python scheduler/schedule_tasks.py & python monitor/monitor_drift.py & streamlit run app/streamlit_app.py"]
+# # Run both FastAPI and Streamlit using a wrapper script
+# # CMD ["python", "app.py"]
+# # CMD ["streamlit", "run", "app/streamlit_app.py", "--server.port=7860", "--server.address=0.0.0.0"]
+# CMD ["bash", "-c", "python scheduler/schedule_tasks.py & python monitor/monitor_drift.py & streamlit run app/streamlit_app.py"]
 
+# Run the startup script
+CMD ["./start.sh"]

@@ -8,7 +8,8 @@ from model.retrain import train_model
 import json
 from datetime import datetime
 
-LOG_PATH = Path("logs/activity_log.json")
+# LOG_PATH = Path("logs/activity_log.json")
+LOG_PATH = Path("/tmp/activity_log.json")
 
 def log_event(event: str):
     log_entry = {

@@ -10,7 +10,9 @@ from datetime import datetime
 SCRAPED_PATH = Path("data/scraped_real.csv")
 TRAIN_PATH = Path("data/combined_dataset.csv")
 VECTORIZER_PATH = Path("model/vectorizer.pkl")
-LOG_PATH = Path("logs/monitoring_log.json")
+# LOG_PATH = Path("logs/monitoring_log.json")
+LOG_PATH = Path("/tmp/monitoring_log.json")
+
 
 def compute_js_divergence(vec1, vec2):
     # Add smoothing to avoid 0s

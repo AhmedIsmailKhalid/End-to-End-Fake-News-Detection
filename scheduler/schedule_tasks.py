@@ -31,7 +31,7 @@ def run_scraper_and_generator():
     log_event("New data scraped and uploaded, triggering retraining now")
 
     print("🔁 Retraining pipeline started...")
-    retrain_if_needed()
+    train_model()
 
     print("🔎 Monitoring for data drift...")
     drift_score = monitor_drift()

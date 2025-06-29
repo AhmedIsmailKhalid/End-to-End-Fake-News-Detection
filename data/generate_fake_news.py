@@ -5,7 +5,8 @@ import datetime
 
 # Save location
 BASE_DIR = Path(__file__).resolve().parent
-OUTPUT_PATH = BASE_DIR / "generated_fake.csv"
+# OUTPUT_PATH = BASE_DIR / "generated_fake.csv"
+OUTPUT_PATH = Path("/tmp/generated_fake.csv")
 
 # Simple templates (can later be replaced with GPT calls)
 SEED_TITLES = [

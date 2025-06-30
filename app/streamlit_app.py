@@ -18,8 +18,11 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 API_URL = "http://localhost:8000/predict"
 CUSTOM_DATA_PATH = Path(__file__).parent.parent / "data" / "custom_upload.csv"
 METADATA_PATH = Path(__file__).parent.parent / "model" / "metadata.json"
-ACTIVITY_LOG_PATH = Path(__file__).parent.parent / "logs" / "activity_log.json"
-DRIFT_LOG_PATH = Path(__file__).parent.parent / "logs" / "monitoring_log.json"
+# ACTIVITY_LOG_PATH = Path(__file__).parent.parent / "logs" / "activity_log.json"
+# DRIFT_LOG_PATH = Path(__file__).parent.parent / "logs" / "monitoring_log.json"
+ACTIVITY_LOG_PATH = Path("/tmp/activity_log.json")
+DRIFT_LOG_PATH = Path("/tmp/monitoring_log.json")
+
 
 # ---- Streamlit UI ----
 st.set_page_config(page_title="Fake News Detector", layout="centered")

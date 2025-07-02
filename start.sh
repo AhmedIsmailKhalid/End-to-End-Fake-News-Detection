@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Start background jobs
-python scheduler/schedule_tasks.py &> logs/scheduler.log &
-python monitor/monitor_drift.py &> logs/monitor.log &
+python scheduler/schedule_tasks.py &> /tmp/scheduler.log &
+python monitor/monitor_drift.py &> /tmp/monitor.log &
 
 # Start FastAPI (internal port)
 uvicorn app.fastapi_server:app --host 127.0.0.1 --port 8000 &

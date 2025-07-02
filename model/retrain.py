@@ -10,22 +10,47 @@ import hashlib
 import datetime
 import shutil
 
-# Paths
-BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR.parent / "data"
-LOGS_DIR = BASE_DIR.parent / "logs"
+# # Paths
+# BASE_DIR = Path(__file__).resolve().parent
+# DATA_DIR = BASE_DIR.parent / "data"
+# LOGS_DIR = BASE_DIR.parent / "logs"
 
+# COMBINED = DATA_DIR / "combined_dataset.csv"
+# SCRAPED = DATA_DIR / "scraped_real.csv"
+# GENERATED = DATA_DIR / "generated_fake.csv"
+
+# PROD_MODEL = BASE_DIR / "model.pkl"
+# PROD_VECTORIZER = BASE_DIR / "vectorizer.pkl"
+
+# CANDIDATE_MODEL = BASE_DIR / "model_candidate.pkl"
+# CANDIDATE_VECTORIZER = BASE_DIR / "vectorizer_candidate.pkl"
+
+# METADATA_PATH = BASE_DIR / "metadata.json"
+
+# Use /tmp as the writable directory in Docker/Hugging Face
+BASE_DIR = Path("/tmp")
+
+# Create writable subdirectories if they don’t exist
+DATA_DIR = BASE_DIR / "data"
+LOGS_DIR = BASE_DIR / "logs"
+MODEL_DIR = BASE_DIR / "model"
+
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+MODEL_DIR.mkdir(parents=True, exist_ok=True)
+
+# File paths
 COMBINED = DATA_DIR / "combined_dataset.csv"
 SCRAPED = DATA_DIR / "scraped_real.csv"
 GENERATED = DATA_DIR / "generated_fake.csv"
 
-PROD_MODEL = BASE_DIR / "model.pkl"
-PROD_VECTORIZER = BASE_DIR / "vectorizer.pkl"
+PROD_MODEL = MODEL_DIR / "model.pkl"
+PROD_VECTORIZER = MODEL_DIR / "vectorizer.pkl"
 
-CANDIDATE_MODEL = BASE_DIR / "model_candidate.pkl"
-CANDIDATE_VECTORIZER = BASE_DIR / "vectorizer_candidate.pkl"
+CANDIDATE_MODEL = MODEL_DIR / "model_candidate.pkl"
+CANDIDATE_VECTORIZER = MODEL_DIR / "vectorizer_candidate.pkl"
 
-METADATA_PATH = BASE_DIR / "metadata.json"
+METADATA_PATH = MODEL_DIR / "metadata.json"
 
 def hash_file(path: Path):
     return hashlib.md5(path.read_bytes()).hexdigest()

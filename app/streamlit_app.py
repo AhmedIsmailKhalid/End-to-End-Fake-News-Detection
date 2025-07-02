@@ -9,6 +9,7 @@ import time
 import subprocess
 import sys
 from pathlib import Path
+import os
 
 # Add root to sys.path for imports if needed
 sys.path.append(str(Path(__file__).resolve().parent.parent))

@@ -9,9 +9,18 @@ import json
 import datetime
 import hashlib
 
-# Paths
-BASE_DIR = Path(__file__).resolve().parent
-DATA_PATH = BASE_DIR.parent / "data" / "combined_dataset.csv"
+# # Paths
+# BASE_DIR = Path(__file__).resolve().parent
+# DATA_PATH = BASE_DIR.parent / "data" / "combined_dataset.csv"
+# MODEL_PATH = BASE_DIR / "model.pkl"
+# VECTORIZER_PATH = BASE_DIR / "vectorizer.pkl"
+# METADATA_PATH = BASE_DIR / "metadata.json"
+
+# Base dir and data location inside /tmp
+BASE_DIR = Path("/tmp")
+DATA_PATH = BASE_DIR / "data" / "combined_dataset.csv"
+
+# Model artifacts also in /tmp (or you can keep these in /app/model if you want to persist them in the container)
 MODEL_PATH = BASE_DIR / "model.pkl"
 VECTORIZER_PATH = BASE_DIR / "vectorizer.pkl"
 METADATA_PATH = BASE_DIR / "metadata.json"

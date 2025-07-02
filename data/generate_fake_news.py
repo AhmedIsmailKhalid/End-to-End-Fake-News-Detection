@@ -3,10 +3,20 @@ import random
 from pathlib import Path
 import datetime
 
-# Save location
-BASE_DIR = Path(__file__).resolve().parent
+# # Save location
+# BASE_DIR = Path(__file__).resolve().parent
 # OUTPUT_PATH = BASE_DIR / "generated_fake.csv"
-OUTPUT_PATH = Path("/tmp/generated_fake.csv")
+
+# Use /tmp for writable storage
+BASE_DIR = Path("/tmp")
+
+# Ensure data directory exists
+DATA_DIR = BASE_DIR / "data"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+# Final output path
+OUTPUT_PATH = DATA_DIR / "generated_fake.csv"
+
 
 # Simple templates (can later be replaced with GPT calls)
 SEED_TITLES = [

@@ -138,3 +138,13 @@ if DRIFT_LOG_PATH.exists():
     st.sidebar.altair_chart(chart, use_container_width=True)
 else:
     st.sidebar.info("No drift data available.")
+
+
+# ---- Tmp Folder Explorer ----
+st.sidebar.header("🗂️ /tmp Explorer")
+if st.sidebar.button("Refresh /tmp View"):
+    tmp_files = []
+    for root, dirs, files in os.walk("/tmp"):
+        for f in files:
+            tmp_files.append(os.path.relpath(os.path.join(root, f), "/tmp"))
+    st.sidebar.write(tmp_files)

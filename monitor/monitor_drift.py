@@ -6,12 +6,29 @@ from scipy.spatial.distance import jensenshannon
 import joblib
 from datetime import datetime
 
-# Paths
-SCRAPED_PATH = Path("data/scraped_real.csv")
-TRAIN_PATH = Path("data/combined_dataset.csv")
-VECTORIZER_PATH = Path("model/vectorizer.pkl")
+# # Paths
+# SCRAPED_PATH = Path("data/scraped_real.csv")
+# TRAIN_PATH = Path("data/combined_dataset.csv")
+# VECTORIZER_PATH = Path("model/vectorizer.pkl")
 # LOG_PATH = Path("logs/monitoring_log.json")
-LOG_PATH = Path("/tmp/monitoring_log.json")
+
+# Base directory (writable in Hugging Face/Docker)
+BASE_DIR = Path("/tmp")
+
+# Define and create directories
+DATA_DIR = BASE_DIR / "data"
+MODEL_DIR = BASE_DIR / "model"
+LOGS_DIR = BASE_DIR / "logs"
+
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+MODEL_DIR.mkdir(parents=True, exist_ok=True)
+LOGS_DIR.mkdir(parents=True, exist_ok=True)
+
+# Paths
+SCRAPED_PATH = DATA_DIR / "scraped_real.csv"
+TRAIN_PATH = DATA_DIR / "combined_dataset.csv"
+VECTORIZER_PATH = MODEL_DIR / "vectorizer.pkl"
+LOG_PATH = LOGS_DIR / "monitoring_log.json"
 
 
 def compute_js_divergence(vec1, vec2):

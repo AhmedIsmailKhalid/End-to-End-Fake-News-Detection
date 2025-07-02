@@ -17,9 +17,10 @@ sys.path.append(str(Path(__file__).resolve().parent.parent))
 # API_URL = "http://127.0.0.1:8000/predict"
 API_URL = "http://localhost:8000/predict"
 CUSTOM_DATA_PATH = Path(__file__).parent.parent / "data" / "custom_upload.csv"
-METADATA_PATH = Path(__file__).parent.parent / "model" / "metadata.json"
+# METADATA_PATH = Path(__file__).parent.parent / "model" / "metadata.json"
 # ACTIVITY_LOG_PATH = Path(__file__).parent.parent / "logs" / "activity_log.json"
 # DRIFT_LOG_PATH = Path(__file__).parent.parent / "logs" / "monitoring_log.json"
+METADATA_PATH = Path("/tmp/metadata.json")
 ACTIVITY_LOG_PATH = Path("/tmp/activity_log.json")
 DRIFT_LOG_PATH = Path("/tmp/monitoring_log.json")
 

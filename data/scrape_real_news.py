@@ -3,10 +3,19 @@ from pathlib import Path
 import pandas as pd
 import datetime
 
-# Output path
-BASE_DIR = Path(__file__).resolve().parent
+# # Output path
+# BASE_DIR = Path(__file__).resolve().parent
 # OUTPUT_PATH = BASE_DIR / "scraped_real.csv"
-OUTPUT_PATH = Path("/tmp/scraped_real.csv")
+
+# Use /tmp for writable storage
+BASE_DIR = Path("/tmp")
+
+# Ensure data directory exists
+DATA_DIR = BASE_DIR / "data"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+# Final output path
+OUTPUT_PATH = DATA_DIR / "scraped_real.csv"
 
 # News sources
 NEWS_SITES = [

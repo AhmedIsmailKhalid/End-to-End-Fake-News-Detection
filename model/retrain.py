@@ -50,7 +50,9 @@ PROD_VECTORIZER = MODEL_DIR / "vectorizer.pkl"
 CANDIDATE_MODEL = MODEL_DIR / "model_candidate.pkl"
 CANDIDATE_VECTORIZER = MODEL_DIR / "vectorizer_candidate.pkl"
 
-METADATA_PATH = MODEL_DIR / "metadata.json"
+# METADATA_PATH = MODEL_DIR / "metadata.json"
+METADATA_PATH = Path("/tmp/metadata.json")
+
 
 def hash_file(path: Path):
     return hashlib.md5(path.read_bytes()).hexdigest()

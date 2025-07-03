@@ -23,7 +23,9 @@ DATA_PATH = BASE_DIR / "data" / "combined_dataset.csv"
 # Model artifacts also in /tmp (or you can keep these in /app/model if you want to persist them in the container)
 MODEL_PATH = BASE_DIR / "model.pkl"
 VECTORIZER_PATH = BASE_DIR / "vectorizer.pkl"
-METADATA_PATH = BASE_DIR / "metadata.json"
+# METADATA_PATH = BASE_DIR / "metadata.json"
+METADATA_PATH = Path("/tmp/metadata.json")
+
 
 def hash_file(filepath):
     content = Path(filepath).read_bytes()

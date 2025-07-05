@@ -38,7 +38,11 @@ RUN mkdir -p /tmp/data /tmp/model /tmp/logs /app/logs && \
     chmod -R 755 /tmp/data /tmp/model /tmp/logs /app/logs
 
 # Make scripts executable
-RUN chmod +x /app/start.sh
+## Run without health check
+# RUN chmod +x /app/start.sh
+
+# Run with health check
+RUN chmod +x /app/start.sh /app/health_check.sh
 
 # Copy initial datasets if they exist
 RUN if [ -f /app/data/combined_dataset.csv ]; then \

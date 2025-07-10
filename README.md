@@ -228,14 +228,15 @@ The updated system features a completely redesigned multi-tab interface:
 
 ## 🛠 Deployment & Operation
 
-### **Docker Deployment**
+### **Pre-built Docker Image Deployment**
 ```bash
-# Build and run the complete system
-docker build -t fake-news-detector .
-docker run -p 7860:7860 -p 8000:8000 fake-news-detector
+# Run this Space with Docker
+docker run -it -p 7860:7860 --platform=linux/amd64 \
+	registry.hf.space/ahmedik95316-end-to-end-fake-news-detection-syst-7d32f4f:latest
 ```
 
 ### **Local Development**
+***Method 1 : Using Shell Script***
 ```bash
 # Install dependencies
 pip install -r requirements.txt
@@ -245,6 +246,13 @@ python initialize_system.py
 
 # Start services
 ./start.sh
+```
+
+***Method 2 : Using Docker To Build and Run the Image***
+```bash
+# Build and run the complete system
+docker build -t fake-news-detector .
+docker run -p 7860:7860 -p 8000:8000 fake-news-detector
 ```
 
 ### **Health Monitoring**

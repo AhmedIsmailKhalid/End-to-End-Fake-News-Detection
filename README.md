@@ -29,7 +29,11 @@ This system represents a complete MLOps implementation with enterprise-grade rel
 * **Statistical Model Validation**: McNemar's test and paired t-tests for promotion decisions
 * **Multi-Method Drift Detection**: Jensen-Shannon divergence, KS tests, and performance monitoring
 * **Production Monitoring**: Resource tracking, performance metrics, and automated alerting
-* **Interactive Dashboard**: Multi-tab Streamlit interface with batch processing and analytics
+* **Advanced Interactive Dashboard**: Complete UI overhaul with 5 specialized tabs for different workflows
+* **Batch Processing & Analysis**: Upload and analyze multiple articles simultaneously with downloadable results
+* **Real-time Analytics**: System metrics dashboard showing API requests, unique clients, model status, and performance trends
+* **Custom Model Training**: Built-in functionality to upload datasets and retrain models with progress tracking
+* **System Status Monitoring**: Comprehensive health dashboard with resource usage, file system status, and initialization tools
 
 ### **Technical Architecture**
 * **ML Pipeline**: Advanced feature engineering with TF-IDF, n-grams, and statistical feature selection
@@ -110,13 +114,49 @@ This system represents a complete MLOps implementation with enterprise-grade rel
 
 ## 💡 Advanced Features
 
-### **Enterprise-Grade Reliability**
+### **Enhanced User Interface**
+
+The updated system features a completely redesigned multi-tab interface:
+
+#### **🔍 Prediction Tab**
+- Single article analysis with confidence scoring
+- Support for text input and file upload
+- Real-time prediction with detailed confidence gauges
+- Analysis history tracking
+
+#### **📊 Batch Analysis Tab** 
+- Upload CSV files for bulk processing
+- Progress tracking with real-time status updates
+- Summary statistics and visualization of results
+- Downloadable analysis reports with timestamps
+
+#### **📈 Analytics Tab**
+- **System Metrics**: Total API requests, unique clients, processing statistics
+- **Model Performance**: Current model version, accuracy trends, confidence patterns
+- **Usage Analytics**: Request patterns, client distribution, error rates
+- **Interactive Visualizations**: Real-time charts and performance dashboards
+
+#### **🎯 Custom Model Training Tab**
+- **Dataset Upload**: Support for custom CSV training data with validation
+- **Training Configuration**: Adjustable parameters (test size, max features, cross-validation)
+- **Real-time Progress**: Live training progress with step-by-step status updates
+- **Performance Validation**: Automatic accuracy reporting and model comparison
+- **Automatic Integration**: Seamless deployment of trained models to production API
+
+#### **⚙️ System Status Tab**
+- **Model Health**: Current model status, last health check, availability metrics
+- **System Resources**: Real-time CPU, memory, and disk usage monitoring
+- **API Health**: Request rates, response times, error tracking
+- **Model Information**: Version details, training metrics, accuracy scores, timestamps
+- **Recent Activity**: Live activity feed with color-coded event logging
+- **File System Status**: Critical file availability and integrity checks
+- **System Initialization**: One-click system setup and recovery tools
 * **Fault Tolerance**: Automatic retry with exponential backoff and circuit breakers
 * **Resource Management**: CPU/memory monitoring with automatic throttling
 * **Service Recovery**: Health checks with automatic restart capabilities
 * **Data Integrity**: Validation pipelines with quality scoring and anomaly detection
 
-### **Statistical Rigor**
+### **Enterprise-Grade Reliability**
 * **Model Validation**: McNemar's test and paired statistical comparisons
 * **Drift Detection**: Multiple statistical methods with significance testing
 * **Performance Tracking**: Confidence intervals and trend analysis
@@ -188,22 +228,14 @@ This system represents a complete MLOps implementation with enterprise-grade rel
 
 ## 🛠 Deployment & Operation
 
-### **Prebuilt Docker Image**
-```bash
-# Run pre-built version from HuggingFace Spaces
-docker run -it -p 7860:7860 --platform=linux/amd64 \
-	registry.hf.space/ahmedik95316-end-to-end-fake-news-detection-syst-7d32f4f:latest
-```
-
-### **Local Development**
-#### ***Docker Image***
+### **Docker Deployment**
 ```bash
 # Build and run the complete system
 docker build -t fake-news-detector .
 docker run -p 7860:7860 -p 8000:8000 fake-news-detector
 ```
 
-#### ***Shell Script***
+### **Local Development**
 ```bash
 # Install dependencies
 pip install -r requirements.txt
